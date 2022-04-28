@@ -10,7 +10,8 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.getAllProducts(20)
+    // res.render("index")
+    db.query(`SELECT * FROM products LIMIT 20;`)
       .then(data => {
         const products = data.rows;
         res.send({ products });
