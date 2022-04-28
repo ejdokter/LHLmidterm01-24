@@ -8,4 +8,4 @@
 
 - user/authenticated user Login page (or on home page) ('/login')
 
-- tracker page (stretch) ('/track:order')
+- tracker page (stretch) ('/orders/:order_id/track')

@@ -10,9 +10,9 @@
 
 - As a user, I want to see how long it will be for my order to be done, because I need to pick it up
 
-- As a authenticated user, I want to see orders that are placed
+- As an admin, I want to see orders that are placed
 
-- As a authenticated user, I want to receive a text message with the order
+- As an admin, I want to receive a text message with the order
 
 - As a user, I want to receive a text message for updates on order (confirmed, time)
 
