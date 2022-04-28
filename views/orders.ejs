@@ -12,10 +12,71 @@
 
   <main style="margin: 1em;">
     <h3>Orders Checkout !!!</h3>
+    <div class="card">
+      <div class = "info">
+        <div class="row">
+          <div class="col-7">
+            <span id="heading">Date</span>
+            <br>
+            <span id=" "details">27th April 2022</span>
+            </div>
+          <div class="col-5 pull-right"><span id="heading">Order No. </span><br>
+          <span id="details">anxaerw123</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="container-fluid my-5 d-flex justify-content-center">
+      <div class = "card card-1">
+        <div class="card-body">
+          <div class="row justify-content-between mb-3">
+              <div class="col-auto">
+                  <h6 class="color-1 mb-0 change-color">Receipt</h6>
+              </div>
+              <div class="col-auto "> <small>Receipt Voucher : 1KAU9-84UIL</small> </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                  <div class="card card-2">
+                      <div class="card-body">
+                          <div class="media">
+                              <div class="sq align-self-center "> <img class="img-fluid my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="https://www.verywellhealth.com/thmb/6ii-Twvctk3x31G3E-i05ZUMfv8=/800x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/30D7A016-ABA5-48DD-BE39-3E7A223A03BF-96f2ba9e6c724dc9b2ba638b0c0f44a2.jpeg" width="135" height="135" /> </div>
+                              <div class="media-body my-auto text-right">
+                                  <div class="row my-auto flex-column flex-md-row">
+                                      <div class="col my-auto">
+                                          <h6 class="mb-0"> Jack Jacs</h6>
+                                      </div>
+                                      <div class="col-auto my-auto"> <small>Net Cereal </small></div>
+                                      <div class="col my-auto"> <small>Size : M</small></div>
+                                      <div class="col my-auto"> <small>Qty : 1</small></div>
+                                      <div class="col my-auto">
+                                          <h6 class="mb-0">$25</h6>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <hr class="my-3 ">
 
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
     <form class="form-inline" action="/orders" method="POST">
+      <div class="form-group mb-2">
+        <label for="email"> Enter your email: </label>
+        <input class="form-control" type="email" name="email" id="email" placeholder="email@example.com" style="width: 300px; margin: 1em">
 
+        <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Checkout</button>
+      </div>
     </form>
 
   </main>
+   <!-- Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+</html>
