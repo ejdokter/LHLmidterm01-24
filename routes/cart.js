@@ -4,7 +4,7 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    res.render("orders");
+    res.render("cart");
     // db.query(`SELECT * FROM users;`)
     //   .then(data => {
     //     const users = data.rows;
