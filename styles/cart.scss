@@ -1,6 +1,27 @@
 /*
  * tweets component design in CSS
  */
+.itemarea {
+  display: flex;
+  flex-direction: column;
+  max-width: 1800px;
+  justify-content: center;
+  background-color: skyblue;
+  margin: auto;
+  border-radius: 25px;
+  margin-top: 40px;
+
+}
+.cartview {
+  display: flex;
+  flex-direction: row;
+  color: black;
+
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  gap: 40px;
+
+}
 .useritems {
   display: flex;
   flex-direction: column;
@@ -11,11 +32,11 @@
 article.cart {
   display: flex;
   flex-direction: column;
-
+  width: 1200px;
   padding: 20px 20px;
   border: 2px solid black;
-  background-color: transparent;
-  font-size: medium;
+  border-radius: 15px;
+  font-size: large;
   font-family: Arial, Helvetica, sans-serif;
   margin: 40px;
 }
@@ -24,14 +45,66 @@ article.cart {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
-  font-size: medium;
   font-family: Arial, Helvetica, sans-serif;
   margin: 10px;
+}
+.buttonitem {
+  background-color:lightcoral;
+  border-radius: 5px;
 }
 article.cart .actionfooter {
   display: flex;
   flex-direction: row;
   justify-content: right;
   gap: 20px;
+}
+.cartamounts {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 400px;
+  padding: 20px 20px;
+  border: 2px solid black;
+  border-radius: 15px;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 40px;
+}
+.itemaccounts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+ .totalfinal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:40px;
+}
+.buttoncheckoutarea {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+}
+.buttoncheckout {
+  background:green;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 60px;
+  min-width: 200px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin: 40px;
 }
