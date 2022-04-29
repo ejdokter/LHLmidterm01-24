@@ -22,51 +22,46 @@
 <body>
   <%- include('partials/header') %>
 
-
   <main class="loginPage">
+
     <div class="login-user">
       <h5>Login as User</h5>
-      <form action="/api/login/alice" method="post">
-      <button id="alice-button" type="submit" class="button-82-pushable" role="button">
+      <button id="alice-button" type="submit" class="button-82-pushable" role="button" onclick="window.location.href='/api/login/1'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
           User Alice
         </span>
-      </form>
-      <form action="/api/login/kira" method="post">
-      <button class="button-82-pushable" role="button">
+      <button class="button-82-pushable" role="button" type="submit" onclick="window.location.href='/api/login/2'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
           User Kira
         </span>
-      </form>
-      <form action="/api/login/bruce" method="post">
-      <button class="button-82-pushable" role="button">
+      <button class="button-82-pushable" role="button" type="submit" onclick="window.location.href='/api/login/3'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
           User Bruce
         </span>
-      </form>
     </div>
 
     <div class="login-admin">
       <h5>Login as Admin</h5>
-      <button class="button-82-pushable" role="button">
+      <button id="kevin-button" class="button-82-pushable" role="button" type="submit" onclick="window.location.href='/api/login/4'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
           Admin Kevin
         </span>
-      <button class="button-82-pushable" role="button">
+      <button class="button-82-pushable" role="button" type="submit" onclick="window.location.href='/api/login/5'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
           Admin Carol
         </span>
     </div>
+
   </main>
 
 </body>

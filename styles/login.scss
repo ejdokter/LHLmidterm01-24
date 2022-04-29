@@ -28,7 +28,7 @@ h5 {
   border-color: black;
   border-style: solid;
   border-radius: 30px;
-  padding: 0.5em;
+  padding: 0.5em 0.8em 0.5em 0.8em;
   text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
@@ -39,3 +39,10 @@ h5 {
 }
 
 
+#alice-button {
+  transform: translateY(-8px);
+}
+
+#kevin-button {
+  transform: translateY(-8px);
+}
