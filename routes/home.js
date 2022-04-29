@@ -10,11 +10,15 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    // const cookieID = req.session["users_id"]
+    // console.log("cookieID:", cookieID)
     // res.render("index")
-    db.query(`SELECT * FROM products LIMIT 20;`)
+    db.query(`SELECT * FROM products WHERE category = 'cereal' LIMIT 20;`)
       .then(data => {
         const products = data.rows;
-        res.send({ products });
+        console.log(products)
+        const templateVars = {products}
+        res.render("index", templateVars);
       })
       .catch(err => {
         res
