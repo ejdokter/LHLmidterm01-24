@@ -34,11 +34,12 @@ article.cart {
   flex-direction: column;
   width: 1200px;
   padding: 20px 20px;
-  border: 2px solid black;
   border-radius: 15px;
   font-size: large;
   font-family: Arial, Helvetica, sans-serif;
   margin: 40px;
+  background-color: #e39dbb;
+  border: 0.25rem solid black;
 }
  article.cart .cartcontent {
   display: flex;
@@ -48,9 +49,25 @@ article.cart {
   font-family: Arial, Helvetica, sans-serif;
   margin: 10px;
 }
+
 .buttonitem {
-  background-color:lightcoral;
+  background-color:#FF4742;
   border-radius: 5px;
+  border: 1px solid #FF4742;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+}
+.buttonitem:hover,
+.buttonitem:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+.buttonitem:active {
+  opacity: 1;
 }
 article.cart .actionfooter {
   display: flex;
@@ -61,25 +78,29 @@ article.cart .actionfooter {
 .cartamounts {
   display: flex;
   flex-direction: column;
+  flex: 1;
   width: 600px;
-  height: 400px;
+  min-height: 400px;
   padding: 20px 20px;
   border: 2px solid black;
   border-radius: 15px;
   font-size: large;
   font-family: Arial, Helvetica, sans-serif;
   margin: 40px;
+  background-color: rgb(210, 250, 246);
+  border: 0.25rem solid black;
 }
 .itemaccounts {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
- .totalfinal {
-  display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin:40px;
+
+}
+ .cartamounts .totalfinal {
+ display: flex;
+ justify-content: flex-end;
+  margin-top: auto;
 }
 .buttoncheckoutarea {
   display: flex;
