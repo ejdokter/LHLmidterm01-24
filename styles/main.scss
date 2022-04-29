@@ -275,26 +275,6 @@ footer {
     outline: none;
   }
 
-.login {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  height: 1em;
-  padding-top: 2em;
-}
-
-h5 {
-  font-size: 0.7em;
-}
-
-.loginPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
   .button-24 {
     background: #FF4742;
     border: 1px solid #FF4742;

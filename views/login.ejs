@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
 
   <!-- External css -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,10 +22,11 @@
 <body>
   <%- include('partials/header') %>
 
+
   <main class="loginPage">
-    <div class="login">
+    <div class="login-user">
       <h5>Login as User</h5>
-      <button type="submit" class="button-82-pushable" role="button">
+      <button id="alice-button" type="submit" class="button-82-pushable" role="button">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
@@ -44,7 +46,7 @@
         </span>
     </div>
 
-    <div class="login">
+    <div class="login-admin">
       <h5>Login as Admin</h5>
       <button class="button-82-pushable" role="button">
         <span class="button-82-shadow"></span>
