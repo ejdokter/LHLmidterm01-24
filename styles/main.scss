@@ -1,10 +1,11 @@
 body {
+  background-image: url("https://cdn.apartmenttherapy.info/image/upload/v1559226287/k/archive/00487d46c890dbdff35805d5241934d16841e770.jpg");
+  background-size: cover;
   min-height: 100vh;
   color: white;
   font-size: 50px;
-  background-color: gray;
-  background-image: url("../img/lucky-charms-treats.jpeg");
-
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 nav {
@@ -12,12 +13,143 @@ nav {
   height: 120px;
   width: 100%;
   padding-left: 2rem;
-  background-color: pink;
+  background: linear-gradient(#d590ae, #e39dbb, #f1aac8, #ffb7d5, #ffc4e2, #ffd2f0, #ffdffe);
   color: #FFFFFF;
   font-family: 'Bangers', cursive;
   justify-content: space-between;
   align-items: center;
   text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 5rem;    /* Footer height */
+}
+
+.products {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.product-image {
+  border: 2px solid #e39dbb;
+  width: 150px;
+  height: 180px;
+  background-color: #e39dbb;
+  background-image: url("https://www.pngkey.com/png/full/123-1235133_00-for-lucky-charms-cereal-lucky-charms-mixed.png");
+  background-size: 100% 100%;
+  margin-top: 20px;
+}
+
+.product1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border: 0.25rem solid black;
+  border-radius: 30px;
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: #e39dbb;
+}
+.product2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border: 0.25rem solid black;
+  border-radius: 30px;
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: #e39dbb;
+}
+.product3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border: 0.25rem solid black;
+  border-radius: 30px;
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: #e39dbb;
+}
+.product4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border: 0.25rem solid black;
+  border-radius: 30px;
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: #e39dbb;
+}
+.product5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border: 0.25rem solid black;
+  border-radius: 30px;
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: #e39dbb;
+}
+.product6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border: 0.25rem solid black;
+  border-radius: 30px;
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: #e39dbb;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background: linear-gradient(#d590ae, #e39dbb, #f1aac8, #ffb7d5, #ffc4e2, #ffd2f0, #ffdffe);
+  color: #FFFFFF;
+  font-family: 'Bangers', cursive;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5rem;
+  font-size: 25px;
+}
+
+.footer-buttons {
+  cursor: pointer;
 }
 
 .banner {
@@ -162,3 +294,39 @@ h5 {
   flex-direction: column;
   align-items: center;
 }
+  .button-24 {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+
+  .button-24:hover,
+  .button-24:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+  }
+
+  .button-24:active {
+    opacity: .5;
+  }
+
