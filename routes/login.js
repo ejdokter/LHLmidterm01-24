@@ -10,21 +10,90 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    // const cookieID = req.session["users_id"]
-    // console.log("cookieID:", cookieID)
-    res.render("login")
-    // db.query(`SELECT * FROM products WHERE category = 'cereal' LIMIT 20;`)
-    //   .then(data => {
-    //     const products = data.rows;
-    //     console.log(products)
-    //     const templateVars = {products}
-    //     res.render("index", templateVars);
-    //   })
-    //   .catch(err => {
-    //     res
-    //       .status(500)
-    //       .json({ error: err.message });
-    //   });
+    const user = req.session.id
+    const templateVars = {user}
+    res.render("login", templateVars)
+  //   // db.query(`SELECT * FROM products WHERE category = 'cereal' LIMIT 20;`)
+  //   //   .then(data => {
+  //   //     const products = data.rows;
+  //   //     console.log(products)
+  //   //     const templateVars = {products}
+  //   //     res.render("index", templateVars);
+  //   //   })
+  //   //   .catch(err => {
+  //   //     res
+  //   //       .status(500)
+  //   //       .json({ error: err.message });
+  //   //   });
   });
+
+  router.get("/:id", (req, res) => {
+    req.session.id = req.params.id
+    console.log(req.session.id)
+    db.query(`SELECT id FROM users WHERE id = $1`, [req.session.id])
+      .then(() => {
+        const user = req.session.id
+        console.log(user)
+        res.redirect("/")
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message })
+      })
+  })
+
+  router.post('/logout', (req, res) => {
+    req.session = null
+    res.redirect('/')
+  })
+  // router.post("/alice", (req, res) => {
+  //   db.query(`SELECT id FROM users WHERE name = 'Alice' AND role = 'user'`)
+  //     .then(data => {
+  //       console.log(data.rows[0])
+  //       const user = data.rows[0]
+  //       req.session.id = user
+  //       res.redirect("/")
+  //     })
+  // })
+
+  // router.post("/kira", (req, res) => {
+  //   db.query(`SELECT id FROM users WHERE name = 'Kira' AND role = 'user'`)
+  //     .then(data => {
+  //       console.log(data.rows[0])
+  //       const user = data.rows[0]
+  //       req.session.id = user
+  //       res.redirect("/")
+  //     })
+  // })
+
+  // router.post("/bruce", (req, res) => {
+  //   db.query(`SELECT id FROM users WHERE name = 'Bruce' AND role = 'user'`)
+  //     .then(data => {
+  //       console.log(data.rows[0])
+  //       const user = data.rows[0]
+  //       req.session.id = user
+  //       res.redirect("/")
+  //     })
+  // })
+
+  // router.post("/kevin", (req, res) => {
+  //   db.query(`SELECT id FROM users WHERE name = 'Kevin' AND role = 'admin'`)
+  //     .then(data => {
+  //       console.log(data.rows[0])
+  //       const user = data.rows[0]
+  //       req.session.id = user
+  //       res.redirect("/")
+  //     })
+  // })
+
+  // router.post("/carol", (req, res) => {
+  //   db.query(`SELECT id FROM users WHERE name = 'Carol' AND role = 'admin'`)
+  //     .then(data => {
+  //       console.log(data.rows[0])
+  //       const user = data.rows[0]
+  //       req.session.id = user
+  //       res.redirect("/")
+  //     })
+  // })
+
   return router;
 };

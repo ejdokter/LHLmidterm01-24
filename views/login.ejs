@@ -22,23 +22,23 @@
 <body>
   <%- include('partials/header') %>
 
-
   <main class="loginPage">
+
     <div class="login-user">
-      <h5>Login as User</h5>
-      <button id="alice-button" type="submit" class="button-82-pushable" role="button">
+      <h5 class="user-text">Login as User</h5>
+      <button id="alice-button" type="submit" class="button-82-pushable" role="button" onclick="window.location.href='/api/login/1'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
           User Alice
         </span>
-      <button class="button-82-pushable" role="button">
+      <button class="button-82-pushable" role="button" type="submit" onclick="window.location.href='/api/login/2'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
           User Kira
         </span>
-      <button class="button-82-pushable" role="button">
+      <button class="button-82-pushable" role="button" type="submit" onclick="window.location.href='/api/login/3'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
@@ -48,19 +48,20 @@
 
     <div class="login-admin">
       <h5>Login as Admin</h5>
-      <button class="button-82-pushable" role="button">
+      <button id="kevin-button" class="button-82-pushable" role="button" type="submit" onclick="window.location.href='/api/login/4'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
           Admin Kevin
         </span>
-      <button class="button-82-pushable" role="button">
+      <button class="button-82-pushable" role="button" type="submit" onclick="window.location.href='/api/login/5'">
         <span class="button-82-shadow"></span>
         <span class="button-82-edge"></span>
         <span class="button-82-front text">
           Admin Carol
         </span>
     </div>
+
   </main>
 
 </body>

@@ -43,26 +43,29 @@
     <div class="itemarea">
       <div class="cartview">
         <div class="itemdetails">
+          <% for(let product in products) { %>
+
           <article class="cart">
             <div class="cartcontent">
               <img
                 class="foodimage"
                 cart
                 image
-                src="https://www.verywellhealth.com/thmb/6ii-Twvctk3x31G3E-i05ZUMfv8=/800x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/30D7A016-ABA5-48DD-BE39-3E7A223A03BF-96f2ba9e6c724dc9b2ba638b0c0f44a2.jpeg"
+                src=<%= products[product]["photo_url"] %>
                 width="135"
                 height="135"
               />
-              <div class="calories">Name</div>
-              <div class="desc">Description</div>
-              <div class="catog">Category</div>
-              <div class="units">Number of units</div>
+              <div class="prodname"><%= products[product]["name"] %></div>
+              <div class="desc"><%= products[product]["description"] %></div>
+              <div class="catog"><%= products[product]["catagory"] %></div>
+              <div class="units"><%= products[product]["price"] %></div>
             </div>
             <div class="actionfooter">
               <button class="buttonitem" type="submit">Delete</button>
               <button class="buttonitem" type="submit">Add</button>
             </div>
           </article>
+        <% } %>
         </div>
 
         <div class="cartamounts">
@@ -74,8 +77,8 @@
             <div class="calories">Total price</div>
           </div>
           <div name="totalfinal">
-            <div class="totalstring">Total:</div>
-            <div class="totalamount">$:</div>
+            <div class="totalstring">Total: $ </div>
+
           </div>
         </div>
       </div>
