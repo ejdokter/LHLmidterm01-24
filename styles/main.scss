@@ -210,6 +210,13 @@ footer {
   .buttons {
     padding-right: 2rem;
     padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+  }
+
+  .logout-button {
+    transform: translateY(-7px);
   }
 
   .button-82-pushable {
