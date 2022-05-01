@@ -55,28 +55,35 @@
                 width="135"
                 height="135"
               />
+            </div>
+            <div class="artcontent">
               <div class="prodname"><%= products[product]["name"] %></div>
               <div class="desc"><%= products[product]["description"] %></div>
-              <div class="catog"><%= products[product]["catagory"] %></div>
-              <div class="units"><%= products[product]["price"] %></div>
-            </div>
+              <div class="catog">Product Category: <%= products[product]["category"] %></div>
+              <div class="units">Price: $<%= products[product]["price"] %></div>
+
             <div class="actionfooter">
               <button class="buttonitem" type="submit">Delete</button>
               <button class="buttonitem" type="submit">Add</button>
             </div>
+          </div>
           </article>
         <% } %>
         </div>
 
         <div class="cartamounts">
           <div class="accountheader"><h3>Order details</h3></div>
+          <% for(let product in products) { %>
           <div class="itemaccounts">
-            <div class="calories">Name</div>
+            <div class="calories"><%= products[product]["name"] %></div>
             <div class="units">total units</div>
-            <div class="units">Unit Price</div>
+            <div class="price">$<%= products[product]["price"] %></div>
+
             <div class="calories">Total price</div>
           </div>
+          <% } %>
           <div name="totalfinal">
+            <div>--------------</div>
             <div class="totalstring">Total: $ </div>
 
           </div>
