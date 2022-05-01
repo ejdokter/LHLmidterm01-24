@@ -73,15 +73,24 @@
 
         <div class="cartamounts">
           <div class="accountheader"><h3>Order details</h3></div>
+          <div class="headernames">
+          <div class="calories">Name</div>
+          <div class="units"> Units</div>
+          <div class="price">Price</div>
+          <div class="calories">Total Price</div>
+        </div>
           <% for(let product in products) { %>
           <div class="itemaccounts">
+
+
             <div class="calories"><%= products[product]["name"] %></div>
             <div class="units">total units</div>
             <div class="price">$<%= products[product]["price"] %></div>
-
             <div class="calories">Total price</div>
+
           </div>
           <% } %>
+
           <div name="totalfinal">
             <div>--------------</div>
             <div class="totalstring">Total: $ </div>

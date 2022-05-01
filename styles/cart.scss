@@ -101,6 +101,13 @@ article.cart .actionfooter {
   background-color: rgb(210, 250, 246);
   border: 0.25rem solid black;
 }
+.headernames {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 1px black;
+  border-bottom: 1px black;
+}
 .itemaccounts {
   display: flex;
   flex-direction: row;
