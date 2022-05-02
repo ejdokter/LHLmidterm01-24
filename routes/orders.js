@@ -7,11 +7,11 @@ module.exports = (db) => {
     // const cookieID = req.session["users_id"]
     // console.log("cookieID:", cookieID)
     // res.render("index")
-    db.query(`SELECT * FROM products WHERE category = 'cereal' LIMIT 20;`)
+    db.query(`SELECT * FROM orders WHERE id = $1`, [user])
       .then(data => {
-        const products = data.rows;
-        console.log(products)
-        const templateVars = {user, products}
+        const orders = data.rows;
+        console.log(orders, user)
+        const templateVars = {user, orders}
         res.render("orders", templateVars);
       })
       .catch(err => {
@@ -20,5 +20,34 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.get("/admin", (req, res) => {
+    const user = req.session.id
+    if (!user) {
+      // alert('you must be logged in')
+      return res.redirect('/api/login')
+    }
+    let adminCheck = '';
+    db.query(`SELECT role FROM users WHERE id = $1`, [user])
+    .then(data => {
+      adminCheck = data.rows[0]
+      console.log(adminCheck.role)
+      if (adminCheck.role != 'admin') {
+        return res.redirect('/api/login')
+      }
+    })
+    db.query(`SELECT * FROM orders`)
+    .then(data => {
+      const orders = data.rows
+      console.log(orders, user)
+      const templateVars = {user, orders}
+      res.render("orders", templateVars)
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  })
   return router;
 };
