@@ -40,12 +40,8 @@ nav {
   margin-bottom: 3rem;
 }
 
-.description-toggle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10px;
+.price-div {
+  margin-top: 30px;
 }
 
 .product-image {
@@ -73,7 +69,7 @@ nav {
   font-size: 22px;
 }
 
-.product1 {
+.product {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,91 +78,20 @@ nav {
   font-family: 'Poppins', sans-serif;
   border: 0.25rem solid black;
   border-radius: 30px;
+  height: 28rem;
   width: 20rem;
   margin: 2rem;
   padding: 1rem;
   background-color: #e39dbb;
+}
+
+.description {
+  height: 8rem;
 }
 
 .description-text {
   font-size: 12px;
 }
-
-.product2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
-.product3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
-.product4 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
-.product5 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
-.product6 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
 
 footer {
   display: flex;
