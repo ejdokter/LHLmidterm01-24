@@ -4,6 +4,9 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     const user = req.session.id
+    if (!user) {
+      return res.redirect('/api/login')
+    }
     // const cookieID = req.session["users_id"]
     // console.log("cookieID:", cookieID)
     // res.render("index")
