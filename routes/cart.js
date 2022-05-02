@@ -6,7 +6,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     let products;
     const user = req.session.id
-    db.query(`SELECT * FROM products;`)
+    db.query(`SELECT * FROM products LIMIT 10;`)
     .then(data => {
      products = data.rows;
      console.log(products);
