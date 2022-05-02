@@ -19,6 +19,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/home.js"></script>
 </head>
 
 <body>
@@ -32,14 +33,16 @@
   <main>
 
 <div class="products">
+  <% for(let product in products) { %>
   <div class="product1">
 
   <div class="product-name">
-  <p>Lucky Charms</p>
+    <%= products[product]["name"] %>
   </div>
 
   <div class="product-image">
-
+    <img class="foodimage" cart image src=<%=
+    products[product]["photo_url"] %> width="135" height="135" />
   </div>
 
   <div class="description">
@@ -48,170 +51,19 @@
       <p>description</p>
 
   </div>
-  <p class="description-text">Lucky Charms is a brand of breakfast cereal
-    produced by the General Mills food company since 1964.
-    The cereal consists of toasted oat pieces and multi-colored marshmallow
-    shapes (or marshmallow bits). The label features a leprechaun mascot,
-    Lucky, animated in commercials.</p>
+  <p class="description-text"><%= products[product]["description"] %></p>
 
 </div>
 
 <div class="price-div">
-<span class="price">Price: &#36;9.99</span>
+<span class="price">Price: $<%= products[product]["price"] %></span>
 <button class="button-24" role="button">Add to Cart</button>
 </div>
 
 </div>
-  <div class="product2">
-
-  <div class="product-name">
-  <p>Lucky Charms</p>
-  </div>
-
-  <div class="product-image">
-
-  </div>
-
-  <div class="description">
-
-    <div class="description-toggle">
-      <p>description</p>
-
-  </div>
-  <p class="description-text">Lucky Charms is a brand of breakfast cereal
-    produced by the General Mills food company since 1964.
-    The cereal consists of toasted oat pieces and multi-colored marshmallow
-    shapes (or marshmallow bits). The label features a leprechaun mascot,
-    Lucky, animated in commercials.</p>
-
+<% } %>
 </div>
 
-<div class="price-div">
-<span class="price">Price: &#36;9.99</span>
-<button class="button-24" role="button">Add to Cart</button>
-</div>
-
-</div>
-  <div class="product3">
-
-  <div class="product-name">
-  <p>Lucky Charms</p>
-  </div>
-
-  <div class="product-image">
-
-  </div>
-
-  <div class="description">
-
-    <div class="description-toggle">
-      <p>description</p>
-
-    </div>
-
-  <p class="description-text">Lucky Charms is a brand of breakfast cereal
-    produced by the General Mills food company since 1964.
-    The cereal consists of toasted oat pieces and multi-colored marshmallow
-    shapes (or marshmallow bits). The label features a leprechaun mascot,
-    Lucky, animated in commercials.</p>
-</div>
-
-<div class="price-div">
-<span class="price">Price: &#36;9.99</span>
-<button class="button-24" role="button">Add to Cart</button>
-</div>
-
-</div>
-  <div class="product4">
-
-  <div class="product-name">
-  <p>Lucky Charms</p>
-  </div>
-
-  <div class="product-image">
-
-  </div>
-
-  <div class="description">
-
-    <div class="description-toggle">
-      <p>description</p>
-
-    </div>
-
-  <p class="description-text">Lucky Charms is a brand of breakfast cereal
-    produced by the General Mills food company since 1964.
-    The cereal consists of toasted oat pieces and multi-colored marshmallow
-    shapes (or marshmallow bits). The label features a leprechaun mascot,
-    Lucky, animated in commercials.</p>
-</div>
-
-<div class="price-div">
-<span class="price">Price: &#36;9.99</span>
-<button class="button-24" role="button">Add to Cart</button>
-</div>
-
-</div>
-  <div class="product5">
-
-  <div class="product-name">
-  <p>Lucky Charms</p>
-  </div>
-
-  <div class="product-image">
-
-  </div>
-
-  <div class="description">
-
-    <div class="description-toggle">
-      <p>description</p>
-
-    </div>
-
-  <p class="description-text">Lucky Charms is a brand of breakfast cereal
-    produced by the General Mills food company since 1964.
-    The cereal consists of toasted oat pieces and multi-colored marshmallow
-    shapes (or marshmallow bits). The label features a leprechaun mascot,
-    Lucky, animated in commercials.</p>
-</div>
-
-<div class="price-div">
-<span class="price">Price: &#36;9.99</span>
-<button class="button-24" role="button">Add to Cart</button>
-</div>
-
-</div>
-  <div class="product6">
-
-  <div class="product-name">
-  <p>Lucky Charms</p>
-  </div>
-
-  <div class="product-image">
-
-  </div>
-
-  <div class="description">
-
-    <div class="description-toggle">
-      <p>description</p>
-
-    </div>
-
-  <p class="description-text">Lucky Charms is a brand of breakfast cereal
-    produced by the General Mills food company since 1964.
-    The cereal consists of toasted oat pieces and multi-colored marshmallow
-    shapes (or marshmallow bits). The label features a leprechaun mascot,
-    Lucky, animated in commercials.</p>
-</div>
-
-<div class="price-div">
-<span class="price">Price: &#36;9.99</span>
-<button class="button-24" role="button">Add to Cart</button>
-</div>
-
-</div>
 
 </main>
 
@@ -220,19 +72,20 @@
 <footer>
 <span>&copy; Established in 2022</span>
 <div class="footer-buttons">
-  <span>
-      Login
-    </span>
-
+  <div class="footer-buttons">
     <span>
-      Cart
-    </span>
+        <a href="/api/login" style="text-decoration: none; color: inherit;">Login</a>
+      </span>
 
-    <span>
-      Orders
-    </span>
+      <span>
+        <a href="/api/cart" style="text-decoration: none; color: inherit;">Cart</a>
+      </span>
 
-</div>
+      <span>
+        <a href="/api/orders" style="text-decoration: none; color: inherit;">Orders</a>
+      </span>
+
+  </div>
   </footer>
 </div>
 </body>
