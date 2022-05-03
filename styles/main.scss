@@ -21,6 +21,11 @@ nav {
   text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
+.cart-quantity {
+  color: rgb(0, 200, 0);
+  background-color: black;
+}
+
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -40,12 +45,8 @@ nav {
   margin-bottom: 3rem;
 }
 
-.description-toggle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10px;
+.price-div {
+  margin-top: 30px;
 }
 
 .product-image {
@@ -53,7 +54,6 @@ nav {
   width: 150px;
   height: 180px;
   background-color: #e39dbb;
-  background-image: url("https://www.pngkey.com/png/full/123-1235133_00-for-lucky-charms-cereal-lucky-charms-mixed.png");
   background-size: 100% 100%;
   margin-top: 20px;
 }
@@ -74,7 +74,7 @@ nav {
   font-size: 22px;
 }
 
-.product1 {
+.product {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,91 +83,20 @@ nav {
   font-family: 'Poppins', sans-serif;
   border: 0.25rem solid black;
   border-radius: 30px;
+  height: 28rem;
   width: 20rem;
   margin: 2rem;
   padding: 1rem;
   background-color: #e39dbb;
+}
+
+.description {
+  height: 8rem;
 }
 
 .description-text {
   font-size: 12px;
 }
-
-.product2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
-.product3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
-.product4 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
-.product5 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
-.product6 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  border: 0.25rem solid black;
-  border-radius: 30px;
-  width: 20rem;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #e39dbb;
-}
-
 
 footer {
   display: flex;
