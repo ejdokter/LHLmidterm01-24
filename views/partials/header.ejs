@@ -19,7 +19,6 @@
 
   <% } else{ %>
 
-
     <div class="buttons">
       <button class="button-82-pushable" role="button" onclick="window.location.href='/api/login'">
         <span class="button-82-shadow"></span>
@@ -39,13 +38,35 @@
       <span class="cart-quantity">0</span>
     </span>
   </button>
-  <button class="button-82-pushable" role="button" onclick="window.location.href='/api/orders'">
-    <span class="button-82-shadow"></span>
-    <span class="button-82-edge"></span>
-    <span class="button-82-front text">
-      Orders
-    </span>
-  </button>
+
+  <% if(user){ %>
+
+    <% if(user.role === 'admin'){ %>
+
+    <button class="button-82-pushable" role="button" onclick="window.location.href='/api/orders/admin'">
+      <span class="button-82-shadow"></span>
+      <span class="button-82-edge"></span>
+      <span class="button-82-front text">
+        Orders
+      </span>
+    </button>
+
+    <% } else{ %>
+
+      <button class="button-82-pushable" role="button" onclick="window.location.href='/api/orders'">
+        <span class="button-82-shadow"></span>
+        <span class="button-82-edge"></span>
+        <span class="button-82-front text">
+          Orders
+        </span>
+      </button>
+
+    <% } %>
+  <% } %>
+
+
+
+
 </div>
 
 </nav>
