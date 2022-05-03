@@ -21,6 +21,11 @@ nav {
   text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
+.cart-quantity {
+  color: rgb(0, 200, 0);
+  background-color: black;
+}
+
 #page-container {
   position: relative;
   min-height: 100vh;
