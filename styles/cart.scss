@@ -1,6 +1,19 @@
 /*
  * tweets component design in CSS
  */
+ .cart-banner {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  border-top: 0.25rem solid black;
+  border-bottom: 0.25rem solid black;
+  background-color: rgb(0, 227, 227);
+  font-size: 25px;
+  font-family: 'Bangers', cursive;
+  text-shadow: 2px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  align-items: center;
+  justify-content: center;
+}
 .itemarea {
   display: flex;
   flex-direction: column;
@@ -22,14 +35,14 @@
   gap: 5px;
 
 }
-.useritems {
-  display: flex;
-  flex-direction: column;
-  background-color: green;
-  align-items: center;
-  font-family: 'Lucida Sans';
-  font-weight: bold;
-}
+// .useritems {
+//   display: flex;
+//   flex-direction: column;
+//   background-color: green;
+//   align-items: center;
+//   font-family: 'Lucida Sans';
+//   font-weight: bold;
+// }
 article.cart {
   display: flex;
   flex-direction: row;

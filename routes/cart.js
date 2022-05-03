@@ -3,6 +3,27 @@ const express = require ('express');
 const router = express.Router();
 
 module.exports = (db) => {
+  router.post("/", (req, res) =>{
+// [1] Grab the variables from request body
+// [2] Execute Database query to insert into Cart table
+// [3] on successful send api response
+
+// const addUser =  function(user) {
+//   return pool
+//   //adding query data and returning * to the end to return the objects that were inserted
+//     .query(
+//       `INSERT INTO users (name, email, password)
+//     VALUES ($1, $2, $3) RETURNING * ;`,
+//       [user.name, user.email, user.password]
+//     ).then((result) =>{
+//       return result.rows[0];
+//     })
+//     .catch((err) =>{
+//       console.log(err.message);
+//     });
+// };
+
+  });
   router.get("/", (req, res) => {
     let products;
     const user = req.session.id
@@ -18,6 +39,7 @@ module.exports = (db) => {
         .status(500)
         .json({ error: err.message });
     });
+
 
 
 
