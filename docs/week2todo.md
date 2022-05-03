@@ -1,12 +1,13 @@
 ## home page - (Nathan)
-- link database
 - add to cart button functionality
+- cart cookie
 
 ## Login
-- admin/user check
 - scaling
+- error loading orders if not logged in
 
 ## Cart page - (Robin)
+- cart cookie
 - add/delete functionality
 - checkout button to INSERT to tables
 - css changes
@@ -15,6 +16,8 @@
 - separate admin orders
 - details pulled from database
 - random order number helper
+
+## Admin order page
 
 ## Twilio (Eric look into)
 - twilio integration
