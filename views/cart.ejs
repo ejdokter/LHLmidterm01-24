@@ -58,8 +58,8 @@
               <div class="units">Price: $<%= products[product]["price"] %></div>
 
               <div class="actionfooter">
-                <button class="buttonitem" type="submit">Delete</button>
-                <button class="buttonitem" type="submit">Add</button>
+                <button class="buttonitem delete-button" data-item="<%= product %>" type="submit">Delete</button>
+                <button class="buttonitem add-button" data-item="<%= product %>" type="submit">Add</button>
               </div>
             </div>
           </article>

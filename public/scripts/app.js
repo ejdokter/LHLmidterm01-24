@@ -25,5 +25,9 @@ $(document).ready(function() {
       </div>
     `
   }
+  $(".add-button").click((e) => {
+    e.preventDefault();
+    console.log("hello");
+    })
 })
 
