@@ -43,7 +43,7 @@ module.exports = (db) => {
 
   router.post('/logout', (req, res) => {
     req.session = null
-    res.redirect('/')
+    res.redirect('/api/login')
   })
   // router.post("/alice", (req, res) => {
   //   db.query(`SELECT id FROM users WHERE name = 'Alice' AND role = 'user'`)
