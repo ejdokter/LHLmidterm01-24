@@ -20,6 +20,7 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/home.js"></script>
+  <script type="text/javascript" src="/scripts/cart-button.js"></script>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
 
 <div class="products">
   <% for(let product in products) { %>
-  <div class="product1">
+  <div class="product">
 
   <div class="product-name">
     <%= products[product]["name"] %>
@@ -47,17 +48,13 @@
 
   <div class="description">
 
-    <div class="description-toggle">
-      <p>description</p>
-
-  </div>
   <p class="description-text"><%= products[product]["description"] %></p>
 
 </div>
 
 <div class="price-div">
 <span class="price">Price: $<%= products[product]["price"] %></span>
-<button class="button-24" role="button">Add to Cart</button>
+<button class="button-24" id="add-to-cart" role="button">Add to Cart</button>
 </div>
 
 </div>
