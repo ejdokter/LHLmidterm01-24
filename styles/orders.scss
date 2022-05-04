@@ -87,6 +87,21 @@
   transform: translateY(-2px);
 }
 
+.track-button {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details > p {
+  margin: 5px;
+}
+
 @media (min-width: 768px) {
   .button-37 {
     padding: 10px 30px;
