@@ -15,7 +15,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM products LIMIT 12;`)
     .then(data => {
      products = data.rows;
-     console.log(products);
+    //  console.log(products);
      const templateVars = {user, products}
      res.render("index", templateVars);
     })

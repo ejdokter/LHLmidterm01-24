@@ -7,14 +7,26 @@ module.exports = (db) => {
     if (!user) {
       return res.redirect('/api/login')
     }
+    // let adminCheck = ''
+    // db.query(`SELECT role FROM users WHERE id = $1`, [user])
+    // .then(data => {
+    //   adminCheck = data.rows[0]
+    //   console.log(adminCheck.role)
+      // if (adminCheck.role === 'admin') {
+      //   return res.render("admin-orders", templateVars)
+    // })
     // const cookieID = req.session["users_id"]
     // console.log("cookieID:", cookieID)
     // res.render("index")
-    db.query(`SELECT * FROM orders WHERE id = $1`, [user])
+    db.query(`SELECT * FROM orders WHERE id = $1`, [user.id])
       .then(data => {
         const orders = data.rows;
         console.log(orders, user)
         const templateVars = {user, orders}
+        if (user.role === 'admin') {
+          console.log("user:", user, "orders:", orders)
+          return res.render("admin-orders", templateVars)
+        }
         res.render("orders", templateVars);
       })
       .catch(err => {
@@ -31,7 +43,7 @@ module.exports = (db) => {
       return res.redirect('/api/login')
     }
     let adminCheck = '';
-    db.query(`SELECT role FROM users WHERE id = $1`, [user])
+    db.query(`SELECT role FROM users WHERE id = $1`, [user.id])
     .then(data => {
       adminCheck = data.rows[0]
       console.log(adminCheck.role)
@@ -43,8 +55,8 @@ module.exports = (db) => {
     .then(data => {
       const orders = data.rows
       console.log(orders, user)
-      const templateVars = {user, orders}
-      res.render("orders", templateVars)
+      const templateVars = {user, adminCheck, orders}
+      res.render("admin-orders", templateVars)
     })
     .catch(err => {
       res
