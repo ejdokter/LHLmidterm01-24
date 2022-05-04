@@ -33,6 +33,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/cart.js"></script>
   </head>
   <body>
     <%- include('partials/header') %>
@@ -58,8 +59,13 @@
               <div class="units">Price: $<%= products[product]["price"] %></div>
 
               <div class="actionfooter">
-                <button class="buttonitem delete-button" data-item="<%= product %>" type="submit">Delete</button>
-                <button class="buttonitem add-button" data-item="<%= product %>" type="submit">Add</button>
+                <form class="actiondelete" action ="/api/cart/delete" method="POST">
+                  <button class="buttonitem delete-button" data-item="<%= product %>" type="submit">Delete</button>
+                </form>
+                <form class="actionadd" action ="/api/cart/add" method="POST">
+                  <button class="buttonitem add-button" data-item="<%= product %>" type="submit">Add</button>
+                </form>
+
               </div>
             </div>
           </article>

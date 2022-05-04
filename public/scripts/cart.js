@@ -6,21 +6,36 @@
 $(document).ready(function() {
 // On button click to add or delete create event handler
 // checkout event handler
-$(".add-button").click((e) => {
+$(".delete-button").click((e) => {
 e.preventDefault();
-console.log("hello");
+console.log("hello delete");
 
-fetch ("/home/:user_id/delete", {method:'POST'})
-.then(function(response){
-  if(response.ok) {
-    console.log('An item was deleted');
-    return;
-      }
-      throw new Error ('Request failed.')
-})
-.catch (function(err){
-  console.log(err);
-})
+
 });
+$(".add-button").click((e) => {
+  e.preventDefault();
+  console.log("hello add");
+  const obj= { 1: "google",
+  2: "description"};
+
+  $.ajax({
+      type: "POST",
+      url: "/add",
+      dataType: 'json',
+      data: obj,
+      xhrFields: {
+        withCredentials: true
+      },
+      crossDomain: true,
+      cache: false,
+      success: function (data) {
+        alert(data);
+      }
+    }).then((response) => {
+      console.log(response)
+    });
+
+
+  });
 
 });
