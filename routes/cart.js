@@ -3,34 +3,19 @@ const express = require ('express');
 const router = express.Router();
 
 module.exports = (db) => {
-  router.post("/", (req, res) =>{
-// [1] Grab the variables from request body
-// [2] Execute Database query to insert into Cart table
-// [3] on successful send api response
 
-// const addUser =  function(user) {
-//   return pool
-//   //adding query data and returning * to the end to return the objects that were inserted
-//     .query(
-//       `INSERT INTO users (name, email, password)
-//     VALUES ($1, $2, $3) RETURNING * ;`,
-//       [user.name, user.email, user.password]
-//     ).then((result) =>{
-//       return result.rows[0];
-//     })
-//     .catch((err) =>{
-//       console.log(err.message);
-//     });
-// };
-
-  });
   router.get("/", (req, res) => {
-    let products;
     const user = req.session.id
+    if (!user) {
+      return res.redirect('/api/login')
+    }
+    let cart = req.cookies;
+    console.log(cart);
+    //const user1 = req.session.id
     db.query(`SELECT * FROM products LIMIT 10;`)
     .then(data => {
      products = data.rows;
-     console.log(products);
+     //console.log(products);
      const templateVars = {user, products}
      res.render("cart", templateVars);
     })
@@ -40,22 +25,36 @@ module.exports = (db) => {
         .json({ error: err.message });
     });
 
+ //
+// [1] Grab the variables from request body
+// [2] Execute Database query to insert into Cart table
+// [3] on successful send api response
+
+
+// router.post("/api/cart/add", (req, res) =>{
+//   let carts;
+//   const user=req.session.id;
+//   db.query(`INSERT INTO products (name, description, category, price)
+//   VALUES ($1, $2, $3, $4) RETURNING * ;`,
+//      [cart.name, cart]
+//     )
+//   .then((result) => {
+//     carts = data.rows;
+//     console.result(carts);
+//     const tempCarts= {user, carts};
+//     res.render ("cart", templateVars);
+//   })
+//   .catch (err => {
+//     res
+//     .status(500)
+//     .json({error: error.message})
+//   })
+// });
 
 
 
-
-
-    // db.query(`SELECT * FROM users;`)
-    //   .then(data => {
-    //     const users = data.rows;
-    //     res.json({ users });
-    //   })
-    //   .catch(err => {
-    //     res
-    //       .status(500)
-    //       .json({ error: err.message });
-    //   });
   });
+
   router.get("/users", (req, res) => { // /users => /api/cart/users
     // const user = req.session.id
     // const templateVars = {user}
