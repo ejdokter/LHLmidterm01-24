@@ -49,6 +49,7 @@
   </div>
 
   <div class="details">
+    <p><b><u>Details</u></b></p>
     <% for(let items of lineItems) { %>
       <% if (items.order_id === orders[order]['id']) { %>
     <p><%= items.name %> x <%= items.quantity %></p>
@@ -60,12 +61,12 @@
   <div class="order-sub-block2">
 
     <div class="status">
-      <span>status</span>
+      <span><b>Status</b></span>
       <p><%= orders[order]["status"] %></p>
     </div>
 
     <div class="too">
-    <span>time of order</span>
+    <span><b>Time of Order</b></span>
     <p class="date-ordered"><%= orders[order]["created_at"] %></p>
   </div>
 
