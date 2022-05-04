@@ -21,10 +21,10 @@ module.exports = (db) => {
     db.query(`SELECT * FROM orders WHERE user_id = $1;`, [user.id])
       .then(data => {
         const orders = data.rows;
-        console.log(orders, user)
+        // console.log(orders, user)
         const templateVars = {user, orders}
         if (user.role === 'admin') {
-          console.log("user:", user, "orders:", orders)
+          // console.log("user:", user, "orders:", orders)
           return res.render("admin-orders", templateVars)
         }
         res.render("orders", templateVars);
@@ -46,19 +46,19 @@ module.exports = (db) => {
     db.query(`SELECT role FROM users WHERE id = $1;`, [user.id])
     .then(data => {
       adminCheck = data.rows[0]
-      console.log(adminCheck.role)
+      // console.log(adminCheck.role)
       if (adminCheck.role != 'admin') {
         return res.redirect('/api/login')
       }
     })
-    db.query(`SELECT * FROM orders;`)
+    db.query(`SELECT * FROM orders WHERE status != 'cancelled';`)
     .then(data => {
       const orders = data.rows
       // console.log(orders, user)
       db.query(`SELECT order_id, products.name, product_id, quantity FROM line_items JOIN products ON product_id = products.id;`).then(data => {
         const lineItems = data.rows
         const templateVars = {user, adminCheck, orders, lineItems}
-        console.log(templateVars)
+        // console.log(templateVars)
         res.render("admin-orders", templateVars)
       })
 
@@ -69,5 +69,28 @@ module.exports = (db) => {
         .json({ error: err.message });
     });
   })
+
+  router.post("/admin/accept", (req, res) => {
+    const user = req.session.id
+    const orderId = req.body.order_id
+    console.log(req.body.order_id)
+    db.query(`UPDATE orders SET status = 'pending' WHERE id = $1;`, [orderId])
+    .then(() => {
+      res.redirect("/api/orders/admin")
+      console.log('success')
+    })
+  })
+
+  router.post("/admin/reject", (req, res) => {
+    const user = req.session.id
+    const orderId = req.body.order_id
+    console.log(req.body.order_id)
+    db.query(`UPDATE orders SET status = 'cancelled' WHERE id = $1;`, [orderId])
+    .then(() => {
+      res.redirect("/api/orders/admin")
+      console.log('success')
+    })
+  })
+
   return router;
 };
