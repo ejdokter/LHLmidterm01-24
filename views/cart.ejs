@@ -51,12 +51,13 @@
               products[product]["photo_url"] %> width="135" height="135" />
             </div>
             <div class="artcontent">
-              <div class="prodname"><%= products[product]["name"] %></div>
-              <div class="desc"><%= products[product]["description"] %></div>
-              <div class="catog">
+              <div class="prodid" id="pid" style="display:none;"><%= products[product]["id"] %></div>
+              <div class="prodname" id="pname"><%= products[product]["name"] %></div>
+              <div class="desc" id="pdesc"><%= products[product]["description"] %></div>
+              <div class="catog" id="pcatog">
                 Product Category: <%= products[product]["category"] %>
               </div>
-              <div class="units">Price: $<%= products[product]["price"] %></div>
+              <div class="units" id="punits">Price: $<%= products[product]["price"] %></div>
 
               <div class="actionfooter">
                 <form class="actiondelete" action ="/api/cart/delete" method="POST">
