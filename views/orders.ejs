@@ -36,6 +36,8 @@
 
 <div class="orders">
 
+  <% for(let order in orders) { %>
+
   <div class="order1">
 
     <div class="order-details-block">
@@ -44,7 +46,7 @@
 
   <div class="order-number">
     <span>Order No.</span>
-    <h1>000123456789</h1>
+    <h1><%= orders[order]["id"] %></h1>
   </div>
 
   <div class="details">
@@ -61,12 +63,14 @@
 
     <div class="too">
     <span>time of order</span>
-    <p class="date-ordered">2022-05-01</p>
+    <p type="date" class="date-ordered"><%= orders[order]["created_at"] %></p>
   </div>
 
   </div>
 
 </div>
+
+
 
 <div class="order-track-block">
 <div class="track-button">
@@ -76,6 +80,7 @@
 </div>
 
 </div>
+<% } %>
 </div>
 
 

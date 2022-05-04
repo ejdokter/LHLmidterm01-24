@@ -27,7 +27,7 @@
 <body>
   <%- include('partials/header') %>
   <div class="orders-banner">
-    Orders
+    Admin Orders
     </div>
 
   <div id="page-container">
@@ -36,19 +36,24 @@
 
 <div class="orders">
 
-  <div class="order1">
+  <% for(let order in orders) { %>
 
+  <div class="order1">
     <div class="order-details-block">
 
     <div class="order-sub-block1">
 
   <div class="order-number">
     <span>Order No.</span>
-    <h1>000123456789</h1>
+    <h1><%= orders[order]["id"] %></h1>
   </div>
 
   <div class="details">
-    <p>details</p>
+    <% for(let items of lineItems) { %>
+      <% if (items.order_id === orders[order]['id']) { %>
+    <p><%= items.name %> x <%= items.quantity %></p>
+    <% } %>
+    <% } %>
   </div>
 </div>
 
@@ -56,26 +61,30 @@
 
     <div class="status">
       <span>status</span>
-      <p>In Progress</p>
+      <p><%= orders[order]["status"] %></p>
     </div>
 
     <div class="too">
     <span>time of order</span>
-    <p class="date-ordered">2022-05-01</p>
+    <p class="date-ordered"><%= orders[order]["created_at"] %></p>
   </div>
 
   </div>
 
 </div>
+
+
 
 <div class="order-track-block">
 <div class="track-button">
-<button class="button-37" role="button">Track</button>
+<button class="button-37" role="button">Accept</button>
+<button class="button-37" role="button" style="background-color: red; border-color: red">Reject</button>
 </div>
 
 </div>
 
 </div>
+<% } %>
 </div>
 
 
