@@ -46,7 +46,7 @@ module.exports = (db) => {
         console.log(products);
         let sum = 0;
         for (const prod of products) {
-          sum += prod.price;
+          sum += Number(prod.price);
         }
         const templateVars = { user, products, sum }
         res.render("cart", templateVars);
@@ -63,25 +63,26 @@ module.exports = (db) => {
     // [3] on successful send api response
 
 
-    // router.post("/api/cart/add", (req, res) =>{
-    //   let carts;
-    //   const user=req.session.id;
-    //   db.query(`INSERT INTO products (name, description, category, price)
-    //   VALUES ($1, $2, $3, $4) RETURNING * ;`,
-    //      [cart.name, cart]
-    //     )
-    //   .then((result) => {
-    //     carts = data.rows;
-    //     console.result(carts);
-    //     const tempCarts= {user, carts};
-    //     res.render ("cart", templateVars);
-    //   })
-    //   .catch (err => {
-    //     res
-    //     .status(500)
-    //     .json({error: error.message})
-    //   })
-    // });
+    router.post("/api/cart/submit", (req, res) =>{
+      let carts;
+      const user=req.session.id;
+
+      db.query(`INSERT INTO products (name, description, category, price)
+      VALUES ($1, $2, $3, $4) RETURNING * ;`,
+         [cart.name, cart]
+        )
+      .then((result) => {
+        carts = data.rows;
+        console.result(carts);
+        const tempCarts= {user, carts};
+        res.render ("cart", templateVars);
+      })
+      .catch (err => {
+        res
+        .status(500)
+        .json({error: error.message})
+      })
+    });
 
 
 

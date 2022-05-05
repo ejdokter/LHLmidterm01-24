@@ -47,8 +47,11 @@
 
           <article class="cart">
             <div class="cartcontent">
-              <img class="foodimage" cart image src=<%=
-              products[product]["photo_url"] %> width="135" height="135" />
+              <div class="imagesize">
+                <img class="foodimage" cart image src=<%=
+                products[product]["photo_url"] %> />
+              </div>
+
             </div>
             <div class="artcontent">
               <div class="prodid" id="pid" style="display:none;"><%= products[product]["id"] %></div>
@@ -77,16 +80,13 @@
             <div class="accountheader">Order Details</div>
             <div class="headernames">
               <div class="itemname">Item</div>
-              <div class="units">Units</div>
               <div class="accountprice">Price</div>
-              <div class="calories">Total Price</div>
+
             </div>
             <% for(let product in products) { %>
             <div class="itemaccounts">
               <div class="calories"><%= products[product]["name"] %></div>
-              <div class="units">1</div>
               <div class="price">$<%= products[product]["price"] %></div>
-              <div class="calories">$<%= products[product]["price"] %></div>
             </div>
             <% } %>
 
@@ -95,7 +95,9 @@
             </div>
           </div>
           <div class="buttoncheckoutarea">
-            <button class="buttoncheckout" type="submit">Checkout</button>
+            <form class="actionadd" action ="/api/cart/submit" method="POST">
+              <button class="buttoncheckout" type="submit">Checkout</button>
+            </form>
           </div>
         </div>
       </div>
