@@ -106,6 +106,7 @@ module.exports = (db) => {
       //   .status(500)
       //   .json({error: error.message})
       // })
+      return res.redirect('/api/orders')
     });
 
   //});
