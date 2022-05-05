@@ -46,12 +46,9 @@
           <% for(let product in products) { %>
 
           <article class="cart">
-            <div class="cartcontent">
-              <div class="imagesize">
-                <img class="foodimage" cart image src=<%=
-                products[product]["photo_url"] %> />
-              </div>
-
+            <div class="cartcontent" style="height: 135px;">
+               <img class="foodimage" style="width: 120px;" cart image src=<%=
+                products[product]["photo_url"]  %> />
             </div>
             <div class="artcontent">
               <div class="prodid" id="pid" style="display:none;"><%= products[product]["id"] %></div>
