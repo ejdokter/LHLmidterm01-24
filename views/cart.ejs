@@ -59,7 +59,7 @@
               </div>
               <div class="units" id="punits">Price: $<%= products[product]["price"] %></div>
 
-              <div class="actionfooter">
+              <div class="actionfooter" style="display:none;">
                 <form class="actiondelete" action ="/api/cart/delete" method="POST">
                   <button class="buttonitem delete-button" data-id="<%= products[product].id %>" type="submit">Delete</button>
                 </form>
@@ -84,14 +84,14 @@
             <% for(let product in products) { %>
             <div class="itemaccounts">
               <div class="calories"><%= products[product]["name"] %></div>
-              <div class="units">total units</div>
+              <div class="units">1</div>
               <div class="price">$<%= products[product]["price"] %></div>
-              <div class="calories">Total price</div>
+              <div class="calories">$<%= products[product]["price"] %></div>
             </div>
             <% } %>
 
             <div class="totalfinal">
-              <div class="totalstring">Total: $</div>
+              <div class="totalstring">Total: $<%= sum %></div>
             </div>
           </div>
           <div class="buttoncheckoutarea">

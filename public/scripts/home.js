@@ -79,8 +79,8 @@ $(document).ready(function () {
     //save to cookie
 
     //console.log(pid, name, desc, catog, units);
-    console.log(getCookie("home"));
-    let presentCookie = JSON.parse(getCookie("home"));
+    console.log(getCookie("cart"));
+    let presentCookie = JSON.parse(getCookie("cart"));
     if (presentCookie) {
       presentCookie.push(objData);
     }
@@ -91,7 +91,7 @@ $(document).ready(function () {
     console.log({ presentCookie });
     //console.log(JSON.stringify([]));
 
-    setCookie("home", JSON.stringify(presentCookie));
+    setCookie("cart", JSON.stringify(presentCookie));
 
     //cookie.clear();
     // $.post('/add', serializedData, response =>{
