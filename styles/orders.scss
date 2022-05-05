@@ -37,6 +37,7 @@
 .order-sub-block2 {
   display: flex;
   flex-direction: row;
+  gap: 2em;
 }
 
 .status {
@@ -69,7 +70,7 @@
   color: #fff;
   cursor: pointer;
   font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 400;
   outline: none;
   outline: 0;

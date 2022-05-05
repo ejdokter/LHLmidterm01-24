@@ -49,6 +49,7 @@
   </div>
 
   <div class="details">
+    <p><b><u>Details</u></b></p>
     <% for(let items of lineItems) { %>
       <% if (items.order_id === orders[order]['id']) { %>
     <p><%= items.name %> x <%= items.quantity %></p>
@@ -60,13 +61,14 @@
   <div class="order-sub-block2">
 
     <div class="status">
-      <span>status</span>
+      <span><b>Status</b></span>
       <p><%= orders[order]["status"] %></p>
     </div>
 
     <div class="too">
-    <span>time of order</span>
-    <p class="date-ordered"><%= orders[order]["created_at"] %></p>
+    <span><b>Time of Order</b></span>
+    <p class="date-ordered"><%= orders[order].created_at.toLocaleDateString("en-US")
+      %></p>
   </div>
 
   </div>
@@ -77,8 +79,12 @@
 
 <div class="order-track-block">
 <div class="track-button">
-<button class="button-37" role="button">Accept</button>
-<button class="button-37" role="button" style="background-color: red; border-color: red">Reject</button>
+<form action="/api/orders/admin/accept" method="post">
+  <button class="button-37" role="button" name="order_id" value="<%= orders[order]['id'] %>">Accept</button>
+</form>
+<form action="/api/orders/admin/reject" method="post">
+  <button class="button-37" role="button" name="order_id" value="<%= orders[order]['id'] %>" style="background-color: red; border-color: red">Reject</button>
+</form>
 </div>
 
 </div>
