@@ -59,7 +59,7 @@
               </div>
               <div class="units" id="punits">Price: $<%= products[product]["price"] %></div>
 
-              <div class="actionfooter">
+              <div class="actionfooter" style="display:none;">
                 <form class="actiondelete" action ="/api/cart/delete" method="POST">
                   <button class="buttonitem delete-button" data-id="<%= products[product].id %>" type="submit">Delete</button>
                 </form>
