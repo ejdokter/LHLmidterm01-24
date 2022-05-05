@@ -85,6 +85,7 @@
 <div class="order-track-block">
 <div class="track-button">
 <form action="/api/orders/admin/accept" method="post">
+  <input type="hidden" name="name" value="orders[order].id">
   <button class="button-37" role="button" name="order_id" value="<%= orders[order]['id'] %>">Accept</button>
 </form>
 <form action="/api/orders/admin/reject" method="post">

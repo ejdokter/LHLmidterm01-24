@@ -8,5 +8,6 @@ CREATE TABLE products (
   photo_url VARCHAR(255) NOT NULL,
   calories_per_serving INTEGER NOT NULL,
   price DECIMAL(10,2) NOT NULL,
-  category VARCHAR(255) NOT NULL
+  category VARCHAR(255) NOT NULL,
+  prep_time INTEGER NOT NULL
 );
