@@ -61,10 +61,10 @@
 
               <div class="actionfooter">
                 <form class="actiondelete" action ="/api/cart/delete" method="POST">
-                  <button class="buttonitem delete-button" data-item="<%= product %>" type="submit">Delete</button>
+                  <button class="buttonitem delete-button" data-id="<%= products[product].id %>" type="submit">Delete</button>
                 </form>
                 <form class="actionadd" action ="/api/cart/add" method="POST">
-                  <button class="buttonitem add-button" data-item="<%= product %>" type="submit">Add</button>
+                  <button class="buttonitem add-button" data-id="<%= products[product].id %>" data-name ="<%= products[product].name %>" type="submit">Add</button>
                 </form>
 
               </div>
