@@ -251,7 +251,7 @@ footer {
     outline: none;
   }
 
-  .button-24 {
+  .buttonitem {
     background: #FF4742;
     border: 1px solid #FF4742;
     border-radius: 6px;
@@ -276,13 +276,13 @@ footer {
     vertical-align: middle;
   }
 
-  .button-24:hover,
+  .buttonitem:hover,
   .button-24:active {
     background-color: initial;
     background-position: 0 0;
     color: #FF4742;
   }
 
-  .button-24:active {
+  .buttonitem:active {
     opacity: .5;
   }

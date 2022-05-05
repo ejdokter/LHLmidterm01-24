@@ -21,7 +21,6 @@
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/home.js"></script>
   <script type="text/javascript" src="/scripts/cart-button.js"></script>
-  <script type="text/javascript" src="/scripts/add-to-cart.js"></script>
 </head>
 
 <body>
@@ -55,7 +54,10 @@
 
 <div class="price-div">
 <span class="price">Price: $<%= products[product]["price"] %></span>
-<button class="button-24" id="add-to-cart" role="button">Add to Cart</button>
+<form class="add-to-cart" action ="/" method="POST">
+  <button class="buttonitem add-to-cart-button" data-id="<%= products[product].id %>" data-name ="<%= products[product].name %>" type="submit">Add to Cart</button>
+</form>
+
 </div>
 
 </div>
