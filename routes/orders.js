@@ -27,7 +27,13 @@ module.exports = (db) => {
           // console.log("user:", user, "orders:", orders)
           return res.render("admin-orders", templateVars)
         }
-        res.render("orders", templateVars);
+        db.query(`SELECT order_id, products.name, product_id, quantity FROM line_items JOIN products ON product_id = products.id;`)
+        .then(data => {
+          const lineItems = data.rows
+          const templateVars = {user, orders, lineItems}
+          // console.log(lineItems)
+          res.render("orders", templateVars)
+        })
       })
       .catch(err => {
         res
@@ -51,14 +57,16 @@ module.exports = (db) => {
         return res.redirect('/api/login')
       }
     })
-    db.query(`SELECT * FROM orders WHERE status != 'cancelled';`)
+    db.query(`SELECT orders.*, users.name FROM orders JOIN users ON user_id = users.id WHERE status != 'cancelled' ORDER BY orders.id;`)
     .then(data => {
       const orders = data.rows
-      // console.log(orders, user)
-      db.query(`SELECT order_id, products.name, product_id, quantity FROM line_items JOIN products ON product_id = products.id;`).then(data => {
+      console.log(orders, user)
+      // db.query(`SELECT line_items.order_id, users.name, products.name, line_items.product_id, line_items.quantity FROM products JOIN line_items ON product_id = products.id JOIN users ON user_id = users.id;`)
+      db.query(`SELECT order_id, products.name, product_id, quantity FROM line_items JOIN products ON product_id = products.id;`)
+      .then(data => {
         const lineItems = data.rows
         const templateVars = {user, adminCheck, orders, lineItems}
-        // console.log(templateVars)
+        // console.log(lineItems)
         res.render("admin-orders", templateVars)
       })
 
@@ -74,7 +82,7 @@ module.exports = (db) => {
     const user = req.session.id
     const orderId = req.body.order_id
     console.log(req.body.order_id)
-    db.query(`UPDATE orders SET status = 'pending' WHERE id = $1;`, [orderId])
+    db.query(`UPDATE orders SET status = 'in progress' WHERE id = $1;`, [orderId])
     .then(() => {
       res.redirect("/api/orders/admin")
       console.log('success')

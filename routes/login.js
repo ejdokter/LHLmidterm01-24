@@ -29,7 +29,7 @@ module.exports = (db) => {
 
   router.get("/:id", (req, res) => {
     req.session.id = req.params.id
-    db.query(`SELECT id, role FROM users WHERE id = $1`, [req.session.id])
+    db.query(`SELECT id, name, role FROM users WHERE id = $1`, [req.session.id])
       .then(data => {
         const user = data.rows[0]
         req.session.id = user
