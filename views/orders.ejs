@@ -28,11 +28,13 @@
   <%- include('partials/header') %>
   <div class="orders-banner">
     Orders
-    </div>
+  </div>
 
-  <div id="page-container">
-    <div id="content-wrap">
-  <main>
+<div id="page-container">
+
+  <div id="content-wrap">
+
+<main>
 
 <div class="orders">
 
@@ -42,49 +44,46 @@
 
     <div class="order-details-block">
 
-    <div class="order-sub-block1">
+      <div class="order-sub-block1">
 
-  <div class="order-number">
-    <span>Order No.</span>
-    <h1><%= orders[order]["id"] %></h1>
-  </div>
+        <div class="order-number">
+          <span>Order No.</span>
+          <h1><%= orders[order]["id"] %></h1>
+        </div>
 
-  <div class="details">
-    <p>details</p>
-  </div>
-</div>
-
-  <div class="order-sub-block2">
-
-    <div class="status">
-      <span>status</span>
-      <p>In Progress</p>
+        <div class="details">
+          <p><b><u>Details</u></b></p>
+          <% for(let items of lineItems) { %>
+            <% if (items.order_id === orders[order]['id']) { %>
+              <p><%= items.name %> x <%= items.quantity %></p>
+            <% } %>
+          <% } %>
+        </div>
     </div>
 
-    <div class="too">
-    <span>time of order</span>
-    <p type="date" class="date-ordered"><%= orders[order]["created_at"] %></p>
-  </div>
+    <div class="order-sub-block2">
 
-  </div>
+      <div class="status">
+        <span>status</span>
+        <p><%= orders[order]["status"] %></p>
+      </div>
+
+      <div class="too">
+        <span>time of order</span>
+        <p type="date" class="date-ordered"><%= orders[order]["created_at"].toLocaleDateString("en-US") %></p>
+      </div>
+
+    </div>
 
 </div>
 
 
 
-<div class="order-track-block">
+<!-- <div class="order-track-block">
 <div class="track-button">
-<button class="button-37" role="button">Track</button>
+<button class="button-37" role="button">Track</button> -->
 </div>
-
-</div>
-
-</div>
-<% } %>
-</div>
-
-
-
+  <% } %>
 </main>
 </div>
 
