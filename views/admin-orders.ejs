@@ -88,7 +88,6 @@
   <% if (orders[order].status == 'pending') { %>
 
 <form action="/api/orders/admin/accept" method="post">
-  <input type="hidden" name="name" value="">
   <button class="button-37" role="button" name="order_id" value="<%= orders[order]['id'] %>">Accept</button>
 </form>
 <form action="/api/orders/admin/reject" method="post">
@@ -105,6 +104,15 @@
 </form>
 
 <% } %>
+
+<% if (orders[order].status == 'completed') { %>
+
+  <form type="hidden" action="/api/orders/admin/complete" method="post">
+    <button class="button-37" role="button" name="order_id" value="<%= orders[order]['id'] %>" style="visibility: hidden;" >Complete</button>
+  </form>
+
+  <% } %>
+
 
 </div>
 
