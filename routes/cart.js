@@ -54,6 +54,12 @@ module.exports = (db) => {
       console.log("submit button pressed");
       let carts;
       const user = req.session.id.id;
+      const admin = req.session.id
+
+      if (admin.role === "admin") {
+        res.clearCookie("cart")
+        return res.redirect('/')
+      }
       console.log(user);
       let presentCookie = JSON.parse(req.cookies["cart"]);
 
@@ -106,6 +112,7 @@ module.exports = (db) => {
       //   .status(500)
       //   .json({error: error.message})
       // })
+      res.clearCookie("cart");
       return res.redirect('/api/orders')
     });
 
