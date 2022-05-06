@@ -51,11 +51,16 @@ nav {
 
 .product-image {
   border: 2px solid #e39dbb;
-  width: 150px;
   height: 180px;
   background-color: #e39dbb;
   background-size: 100% 100%;
   margin-top: 20px;
+}
+
+
+.foodimage {
+  width: auto;
+
 }
 
 .price-div {
@@ -285,4 +290,9 @@ footer {
 
   .buttonitem:active {
     opacity: .5;
+  }
+
+  .cart-thing {
+    color:blue;
+   visibility: hidden;
   }

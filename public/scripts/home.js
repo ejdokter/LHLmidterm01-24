@@ -54,7 +54,6 @@ $(document).ready(function () {
   //   e.preventDefault();
   //   console.log("hello add to cart");
   // });
-
   $(".add-to-cart-button").click((e) => {
     //$(document).on('click', '.buttonitem .add-button', function(e) {
     e.preventDefault();
@@ -100,5 +99,4 @@ $(document).ready(function () {
     // })
 
   });
-
 });
