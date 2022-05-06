@@ -77,7 +77,7 @@ module.exports = (db) => {
 
       db.query(`INSERT INTO orders (user_id, status, created_at)
        VALUES ($1, $2, $3) RETURNING * ;`,
-        [user, "active", dt]
+        [user, "pending", dt]
       )
         .then((result) => {
           //console.log(result.rows);
