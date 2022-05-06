@@ -1,5 +1,6 @@
-LHL Node Skeleton
+LHL Midterm
 =========
+# Mike's Cereal Shack
 
 ## Project Setup
 
@@ -41,3 +42,23 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- chalk ^2.4.2
+- cookie-parser ^1.4.6",
+- cookie-session ^2.0.0",
+- cookieparser ^0.1.0",
+- dotenv ^2.0.0",
+- ejs ^2.6.2",
+- express ^4.17.1",
+- morgan ^1.9.1",
+- ngrok ^4.3.1",
+- pg ^8.5.0",
+- sass ^1.35.1
+- twilio ^3.77.0
+
+### Screenshots
+
+!["Screenshot of Home Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/Home%20Page.png?raw=true)
+!["Screenshot of Login Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/Login%20Page.png?raw=true)
+!["Screenshot of Search Listings Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/Search%20Listing%20Page.png?raw=true)
+!["Screenshot of Create Listing Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/Create%20Listing%20Page.png?raw=true)
+!["Screenshot of My Listings Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/My%20Listings%20Page.png?raw=true)
