@@ -22,7 +22,7 @@ module.exports = (db) => {
     // const cookieID = req.session["users_id"]
     // console.log("cookieID:", cookieID)
     // res.render("index")
-    db.query(`SELECT * FROM orders WHERE user_id = $1;`, [user.id])
+    db.query(`SELECT * FROM orders WHERE user_id = $1 ORDER BY id DESC;`, [user.id])
       .then(data => {
         const orders = data.rows;
         // console.log(orders, user)
@@ -61,7 +61,7 @@ module.exports = (db) => {
         return res.redirect('/api/login')
       }
     })
-    db.query(`SELECT orders.*, users.name FROM orders JOIN users ON user_id = users.id WHERE status != 'cancelled' ORDER BY orders.id;`)
+    db.query(`SELECT orders.*, users.name FROM orders JOIN users ON user_id = users.id WHERE status != 'cancelled' ORDER BY orders.id DESC;`)
     .then(data => {
       const orders = data.rows
       // console.log(orders, user)
