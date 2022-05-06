@@ -23,6 +23,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/orders.js"></script>
 </head>
 <body>
   <%- include('partials/header') %>
@@ -81,27 +82,42 @@
 </div>
 
 
-
 <div class="order-track-block">
 <div class="track-button">
+
+  <% if (orders[order].status == 'pending') { %>
+
 <form action="/api/orders/admin/accept" method="post">
-  <input type="hidden" name="name" value="orders[order].id">
+  <input type="hidden" name="name" value="">
   <button class="button-37" role="button" name="order_id" value="<%= orders[order]['id'] %>">Accept</button>
 </form>
 <form action="/api/orders/admin/reject" method="post">
   <button class="button-37" role="button" name="order_id" value="<%= orders[order]['id'] %>" style="background-color: red; border-color: red">Reject</button>
 </form>
+
+<% } %>
+
+<% if (orders[order].status == 'in progress') { %>
+
+<form action="/api/orders/admin/complete" method="post">
+  <input type="hidden" name="name" value="">
+  <button class="button-37" role="button" name="order_id" value="<%= orders[order]['id'] %>">Complete</button>
+</form>
+
+<% } %>
+
 </div>
 
 </div>
+
+
 
 </div>
 <% } %>
 </div>
 
-
-
 </main>
+
 </div>
 
 
