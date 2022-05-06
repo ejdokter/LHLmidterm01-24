@@ -12,3 +12,7 @@ client.messages
      to: '+14039912192'
    })
   .then(message => console.log(message.status));
+
+
+
+  // SELECT sum(prep_time), line_items.order_id FROM products JOIN line_items ON product_id = products.id WHERE line_items.order.id = 1 GROUP BY line_items.order_id;
