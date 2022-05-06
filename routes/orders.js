@@ -1,5 +1,9 @@
 const express = require('express');
 const router  = express.Router();
+const accountSid = 'AC53ed0e5311ddee27527aadf0397f75ec';
+const authToken = '9a32ea7948b9ffccb4d861c9ff457c2a';
+const client = require('twilio')(accountSid, authToken);
+
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -81,11 +85,18 @@ module.exports = (db) => {
   router.post("/admin/accept", (req, res) => {
     const user = req.session.id
     const orderId = req.body.order_id
-    console.log(req.body.order_id)
+    console.log(req.body)
     db.query(`UPDATE orders SET status = 'in progress' WHERE id = $1;`, [orderId])
     .then(() => {
-      res.redirect("/api/orders/admin")
-      console.log('success')
+      client.messages
+        .create({
+          body: `Testing customer name: ${user.name}`,
+          from: '+19704699159',
+          to: '+14039912192'
+        })
+        .then(message => console.log(message.status));
+        res.redirect("/api/orders/admin")
+        console.log('success')
     })
   })
 
@@ -95,8 +106,15 @@ module.exports = (db) => {
     console.log(req.body.order_id)
     db.query(`UPDATE orders SET status = 'cancelled' WHERE id = $1;`, [orderId])
     .then(() => {
-      res.redirect("/api/orders/admin")
-      console.log('success')
+      client.messages
+        .create({
+          body: "We're sorry, we cannot complete your order. The order has been cancelled.",
+          from: '+19704699159',
+          to: '+14039912192'
+        })
+        .then(message => console.log(message.status));
+        res.redirect("/api/orders/admin")
+        console.log('success')
     })
   })
 
