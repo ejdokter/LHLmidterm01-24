@@ -25,6 +25,12 @@ module.exports = (db) => {
         .json({ error: err.message });
     });
 
+    router.post("/submit", (req, res) => {
+      const admin = req.session.id
+      if (admin.role === "admin") {
+        return res.redirect('/')
+      }
+    });
   });
   router.get("/users", (req, res) => {
 
@@ -39,6 +45,7 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
   return router;
 };
 

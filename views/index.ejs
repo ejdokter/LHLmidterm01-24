@@ -24,7 +24,88 @@
 </head>
 
 <body>
-  <%- include('partials/header') %>
+  <header>
+    <nav>
+
+      <span>
+        <a href="/" style="text-decoration: none; color: inherit;">Mike's Cereal Shack</a>
+      </span>
+
+      <% if(user){ %>
+
+        <div class="buttons">
+          <form class="logout-button" action="/api/login/logout" method="post">
+          <button class="button-82-pushable" role="button" type="submit">
+            <span class="button-82-shadow"></span>
+            <span class="button-82-edge"></span>
+            <span class="button-82-front text">
+              Logout
+            </span>
+          </form>
+
+      <% } else{ %>
+
+        <div class="buttons">
+          <button class="button-82-pushable" role="button" onclick="window.location.href='/api/login'">
+            <span class="button-82-shadow"></span>
+            <span class="button-82-edge"></span>
+            <span class="button-82-front text">
+              Login
+            </span>
+
+        <% } %>
+
+      </button>
+      <button class="button-82-pushable" role="button" onclick="window.location.href='/api/cart'">
+        <span class="button-82-shadow"></span>
+        <span class="button-82-edge"></span>
+        <span class="button-82-front text">
+          Cart
+          <span class="cart-quantity">0</span>
+        </span>
+      </button>
+
+      <% if(user){ %>
+
+        <% if(user.role === 'admin'){ %>
+
+        <button class="button-82-pushable" role="button" onclick="window.location.href='/api/orders/admin'">
+          <span class="button-82-shadow"></span>
+          <span class="button-82-edge"></span>
+          <span class="button-82-front text">
+            Orders
+          </span>
+        </button>
+
+        <style>
+
+          .cart-quantity {
+            display: none;
+          }
+          </style>
+
+        <% } else{ %>
+
+          <button class="button-82-pushable" role="button" onclick="window.location.href='/api/orders'">
+            <span class="button-82-shadow"></span>
+            <span class="button-82-edge"></span>
+            <span class="button-82-front text">
+              Orders
+            </span>
+          </button>
+
+        <% } %>
+      <% } %>
+
+
+
+
+    </div>
+
+    </nav>
+
+    </header>
+
   <div class="banner">
     Welcome to Mike's Cereal Shack!
     </div>
@@ -54,9 +135,18 @@
 
 <div class="price-div">
 <span class="price">Price: $<%= products[product]["price"] %></span>
+<% if(user){ %>
+
+  <% if(user.role === 'user'){ %>
 <form class="add-to-cart" action ="/" method="POST">
   <button class="buttonitem add-to-cart-button" data-id="<%= products[product].id %>" data-name ="<%= products[product].name %>" type="submit">Add to Cart</button>
 </form>
+<% } else{ %>
+  <button class="buttonitem">Add to Cart</button>
+
+<% } %>
+<% } %>
+
 
 </div>
 
