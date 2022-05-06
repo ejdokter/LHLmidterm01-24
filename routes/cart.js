@@ -1,40 +1,44 @@
+// This server page is for cart page get and post functions
 
 const express = require('express');
 const router = express.Router();
 
-
 module.exports = (db) => {
 
-
   router.get("/", (req, res) => {
-    //let presentCookie = JSON.parse(getCookie("cart", req));
+
+    //if cookies are not present page redirects to home page
     if (!req.cookies["cart"]) {
       return res.redirect('/');
     }
-    let presentCookie = JSON.parse(req.cookies["cart"]);
 
+    //getting cookies by JSON.parse and looping to get arrays of ids
+    let presentCookie = JSON.parse(req.cookies["cart"]);
     let cookieIds = [];
     for (cokie of presentCookie) {
       cookieIds.push(cokie.id);
     }
-    //console.log(cookieIds);
+
+    //if user is not present the page redirects to login page
     const user = req.session.id
     if (!user) {
-      return res.redirect('/api/login')
+      return res.redirect('/api/login');
     }
-    // let cart = req.cookies;
-    //console.log(cart);
-    //const user1 = req.session.id
+
+    //getting data from product table
     db.query(`SELECT * FROM products;`)
       .then(data => {
         products = data.rows;
+
+        //filtering the products according to product ids in cookie
         products = products.filter(product => cookieIds.includes(product.id));
 
-        console.log(products);
+        //getting sum of all the prices from the filtered products
         let sum = 0;
         for (const prod of products) {
           sum += Number(prod.price);
         }
+        // passing variables user, products and sum to render the cart page
         const templateVars = { user, products, sum }
         res.render("cart", templateVars);
       })
@@ -44,25 +48,29 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
     });
-    //
+
+
     // [1] Grab the variables from request body
     // [2] Execute Database query to insert into Cart table
     // [3] on successful send api response
 
-
+    // submit button post function
     router.post("/submit", (req, res) => {
-      console.log("submit button pressed");
-      let carts;
+
+      //getting user and admin values from cookie session
       const user = req.session.id.id;
       const admin = req.session.id
 
+      // if admin role cookies is cleared and goes to home page
       if (admin.role === "admin") {
         res.clearCookie("cart")
         return res.redirect('/')
       }
-      console.log(user);
+      //console.log(user);
+      //getting cookie named cart by JSON parsing
       let presentCookie = JSON.parse(req.cookies["cart"]);
 
+      //creating cookieIds object and its key as cokie id
       let cookieIds = {};
       for (cokie of presentCookie) {
         if (cookieIds[cokie.id]) {
@@ -71,21 +79,16 @@ module.exports = (db) => {
           cookieIds[cokie.id] = 1;
         };
       }
-      console.log(cookieIds);
+
       const dt = "May 5 2022";
 
-
+      //inserting values in the orders table
       db.query(`INSERT INTO orders (user_id, status, created_at)
        VALUES ($1, $2, $3) RETURNING * ;`,
         [user, "pending", dt]
       )
         .then((result) => {
-          //console.log(result.rows);
           return result.rows[0];
-          //   carts = data.rows;
-          //   console.result(carts);
-          //   const tempCarts= {user, carts};
-          //   res.render ("cart", templateVars);
 
         }).then(({ id }) => {
           const orderid = id;
@@ -107,33 +110,25 @@ module.exports = (db) => {
           console.log(data.rows);
         }
         )
-      // .catch (err => {
-      //   res
-      //   .status(500)
-      //   .json({error: error.message})
-      // })
+
       res.clearCookie("cart");
       return res.redirect('/api/orders')
     });
 
-  //});
-
-  router.get("/users", (req, res) => { // /users => /api/cart/users
-    // const user = req.session.id
-    // const templateVars = {user}
-    // res.render("cart", templateVars);
-
-
-    db.query(`SELECT * FROM products;`)
-      .then(data => {
-        const products = data.rows;
-        res.json({ products });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
+    /*
+    //For stretch this url gets the values of all the product for testing
+  // router.get("/users", (req, res) => { // /users => /api/cart/users
+  //   db.query(`SELECT * FROM products;`)
+  //     .then(data => {
+  //       const products = data.rows;
+  //       res.json({ products });
+  //     })
+  //     .catch(err => {
+  //       res
+  //         .status(500)
+  //         .json({ error: err.message });
+  //     });
+  // });
+  */
   return router;
 };
