@@ -57,8 +57,8 @@ The following steps are only for _one_ of the group members to perform.
 
 ### Screenshots
 
-!["Screenshot of Home Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/Home%20Page.png?raw=true)
-!["Screenshot of Login Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/Login%20Page.png?raw=true)
-!["Screenshot of Search Listings Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/Search%20Listing%20Page.png?raw=true)
-!["Screenshot of Create Listing Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/Create%20Listing%20Page.png?raw=true)
-!["Screenshot of My Listings Page"](https://github.com/nathanpare/LightBnB/blob/main/docs/My%20Listings%20Page.png?raw=true)
+!["Screenshot of Home Page"](https://github.com/ejdokter/LHLmidterm01-24/blob/master/docs/Screenshot%20of%20home%20page.png?raw=true)
+!["Screenshot of Login Page"](https://github.com/ejdokter/LHLmidterm01-24/blob/master/docs/Screenshot%20of%20login%20page.png?raw=true)
+!["Screenshot of Cart Page"](https://github.com/ejdokter/LHLmidterm01-24/blob/master/docs/Screenshot%20of%20cart%20page.png?raw=true)
+!["Screenshot of User Orders Page"](https://github.com/ejdokter/LHLmidterm01-24/blob/master/docs/Screenshot%20of%20user%20orders.png?raw=true)
+!["Screenshot of Admin Orders Page"](https://github.com/ejdokter/LHLmidterm01-24/blob/master/docs/Screenshot%20of%20admin%20orders.png?raw=true)
