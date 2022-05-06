@@ -88,13 +88,13 @@ module.exports = (db) => {
     // console.log(req.body)
     db.query(`UPDATE orders SET status = 'in progress' WHERE id = $1;`, [orderId])
     .then(() => {
-      // client.messages
-      //   .create({
-      //     body: `Your order has been accepted! Pouring the cereal now!`,
-      //     from: '+19704699159',
-      //     to: '+14039912192'
-      //   })
-      //   .then(message => console.log(message.status));
+      client.messages
+        .create({
+          body: `Your order has been accepted! Pouring the cereal now!`,
+          from: '+19704699159',
+          to: '+14039912192'
+        })
+        .then(message => console.log(message.status));
         res.redirect("/api/orders/admin")
         console.log('accepted')
     })
@@ -124,13 +124,13 @@ module.exports = (db) => {
     // console.log(req.body.order_id)
     db.query(`UPDATE orders SET status = 'completed' WHERE id = $1;`, [orderId])
     .then(() => {
-      // client.messages
-      //   .create({
-      //     body: "We're sorry, we cannot complete your order. The order has been cancelled.",
-      //     from: '+19704699159',
-      //     to: '+14039912192'
-      //   })
-      //   .then(message => console.log(message.status));
+      client.messages
+        .create({
+          body: "We're sorry, we cannot complete your order. The order has been cancelled.",
+          from: '+19704699159',
+          to: '+14039912192'
+        })
+        .then(message => console.log(message.status));
         res.redirect("/api/orders/admin")
         console.log('completed')
     })
