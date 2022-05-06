@@ -1,9 +1,7 @@
-
 // Client facing scripts here
 
-
+//These functions are supporting function for stretch add and delete buttons which are hidden for now.
 function setCookie(name, value) {
-
   let cookie = name + "=" + encodeURIComponent(value);
   document.cookie = cookie;
 };
@@ -34,15 +32,13 @@ $(document).ready(function () {
     e.preventDefault();
     console.log("hello add", $(e.currentTarget).data());
 
-    //const get cartdata variable
 
     let pid =$(e.currentTarget).data().id;
     let name =$(e.currentTarget).data().name
 
-
     let objData = { id: pid, name: name };
-    //save to cookie
 
+    //save to cookie
     let presentCookie = JSON.parse(getCookie("cart"));
     if (presentCookie) {
       presentCookie.push(objData);
